@@ -1,7 +1,8 @@
 {
   "functions": {
-    "lib/actions/*.ts": {
-      "maxDuration": 30
+    "api/**/*.ts": {
+      "maxDuration": 30,
+      "memory": 1024
     }
   }
 }
