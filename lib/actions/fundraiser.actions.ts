@@ -9,14 +9,6 @@ interface FundraiserActionProps {
   userId: string;
 }
 
-// const populateEvent = (query: any) => {
-//   return query.populate({
-//     path: "organizer",
-//     model: Fundraiser,
-//     select: "_id username email",
-//   });
-// };
-
 // CREATE
 export const createFundraiser = async ({ userId }: FundraiserActionProps) => {
   try {
