@@ -2,7 +2,7 @@ import { FaUser } from "react-icons/fa";
 
 interface SupportWords {
   name: string;
-  howMuch: string;
+  amount: string;
   words: string;
 }
 
