@@ -13,7 +13,7 @@ export const FileUploader = () => {
     let fileList: FileList | null = null;
 
     if (e instanceof DragEvent) {
-      fileList = e.dataTransfer?.files;
+      fileList = e.dataTransfer?.files || null;
     } else if (e.target instanceof HTMLInputElement) {
       fileList = e.target.files;
     }
@@ -62,9 +62,9 @@ export const FileUploader = () => {
       <div className="mt-4">
         {files.length > 0 && (
           <ul>
-            {files.map((file, index) => {
-              <li key={index}>{file}</li>;
-            })}
+            {files.map((file, index) => (
+              <li key={index}>{file}</li>
+            ))}
           </ul>
         )}
       </div>
