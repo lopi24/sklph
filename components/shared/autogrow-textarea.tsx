@@ -62,4 +62,6 @@ const AutoGrowTextarea = forwardRef<HTMLTextAreaElement, AutoGrowTextareaProps>(
   }
 );
 
+AutoGrowTextarea.displayName = "AutoGrowTextarea";
+
 export default AutoGrowTextarea;
