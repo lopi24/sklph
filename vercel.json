@@ -1,6 +1,6 @@
 {
   "functions": {
-    "lib/actions/fundraiser.actions.ts": {
+    "lib/actions/*.ts": {
       "maxDuration": 30
     }
   }
