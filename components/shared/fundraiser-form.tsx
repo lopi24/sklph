@@ -87,7 +87,7 @@ const FundraiserForm = () => {
     };
 
     fetchFundraiser();
-  }, [fundraiserId, form]);
+  }, [fundraiserId]);
 
   const onSubmit = (data: FundraiserFormData) => {
     console.log(data);
