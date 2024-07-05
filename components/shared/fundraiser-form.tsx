@@ -57,8 +57,6 @@ const FundraiserForm = () => {
       try {
         const fundraiserData = await getFundraiserById(fundraiserId);
 
-        console.log(fundraiserData);
-
         if (fundraiserData.goal) {
           setIsSecondStepValid(true);
         }
@@ -77,7 +75,6 @@ const FundraiserForm = () => {
             preview: image,
             type: "image",
           }));
-          console.log(existingFiles);
           setFiles(existingFiles);
           form.setValue("images", existingFiles);
         }
@@ -120,9 +117,6 @@ const FundraiserForm = () => {
 
   const isFifthStepComplete = !!(title && isFifthStepValid);
 
-  // const nextStep = () => setStep((prev) => prev + 1);
-  // const prevStep = () => setStep((prev) => prev - 1);
-
   const nextStep = async () => {
     // TODO: when clicked it will call tha update action
     try {
@@ -135,12 +129,6 @@ const FundraiserForm = () => {
         fundraiserId,
         data: plainData,
       });
-
-      // await updateFormField({
-      //   userId: session?.data?.user?.id,
-      //   fundraiserId,
-      //   data,
-      // });
 
       const steps = ["place-date", "goal", "media", "story", "title", "review"];
       const currentStep = Array.isArray(step) ? step[0] : step;
