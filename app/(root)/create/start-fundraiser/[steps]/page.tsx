@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import FundraiserId from "./[fundraiserId]/page";
 // fix redirect to the form
 const Steps = ({ params }: { params: { id: string } }) => {

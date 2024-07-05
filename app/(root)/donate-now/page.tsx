@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 const DonateNow = () => {
   return <div>Donate Now</div>;
