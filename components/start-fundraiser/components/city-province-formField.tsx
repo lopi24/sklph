@@ -12,12 +12,10 @@ import { FundraiserFormData } from "@/validator";
 
 interface CityProvinceFormFieldProps {
   form: UseFormReturn<FundraiserFormData>;
-  latestData: any;
 }
 
 const CityProvinceFormField = ({
-  form,
-  latestData,
+  form
 }: CityProvinceFormFieldProps) => {
   return (
     <div className="flex flex-col gap-4 px-2 mb-4">
@@ -66,7 +64,6 @@ const CityProvinceFormField = ({
                 <Input
                   placeholder="Province"
                   {...field}
-                  defaultValue={latestData?.province}
                   className="input-field"
                 />
               </FormControl>

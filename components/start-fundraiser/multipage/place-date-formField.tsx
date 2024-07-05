@@ -9,10 +9,9 @@ import Guide from "../components/guide";
 
 interface PlaceDateFormFieldProps {
   form: UseFormReturn<FundraiserFormData>;
-  latestData: any;
 }
 
-const PlaceDateFormField = ({ form, latestData }: PlaceDateFormFieldProps) => {
+const PlaceDateFormField = ({ form }: PlaceDateFormFieldProps) => {
   return (
     <div className="flex h-screen">
       <Guide
@@ -21,8 +20,8 @@ const PlaceDateFormField = ({ form, latestData }: PlaceDateFormFieldProps) => {
         entire fundraising process."
       />
       <FieldForm>
-        <CityProvinceFormField form={form} latestData={latestData} />
-        <StartEndTimeFormField form={form} latestData={latestData} />
+        <CityProvinceFormField form={form} />
+        <StartEndTimeFormField form={form} />
       </FieldForm>
     </div>
   );

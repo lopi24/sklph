@@ -15,13 +15,9 @@ import { useState } from "react";
 
 interface StartEndTimeFormFieldProps {
   form: UseFormReturn<FundraiserFormData>;
-  latestData: any;
 }
 
-const StartEndTimeFormField = ({
-  form,
-  latestData,
-}: StartEndTimeFormFieldProps) => {
+const StartEndTimeFormField = ({ form }: StartEndTimeFormFieldProps) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
 

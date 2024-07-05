@@ -31,7 +31,7 @@ const FundraiserForm = () => {
   const router = useRouter();
   const params = useParams();
 
-  const step = params.steps;
+  const step = Array.isArray(params.steps) ? params.steps[0] : params.steps;
   const fundraiserId = params.fundraiserId;
 
   // const [step, setStep] = useState(0); // Step state
@@ -72,7 +72,7 @@ const FundraiserForm = () => {
         // form.setValue("images", fundraiserData.images || []);
         // TODO: fix this
         if (fundraiserData.images) {
-          const existingFiles = fundraiserData.images.map((image) => ({
+          const existingFiles = fundraiserData.images.map((image: any) => ({
             name: image,
             preview: image,
             type: "image",
@@ -143,7 +143,8 @@ const FundraiserForm = () => {
       // });
 
       const steps = ["place-date", "goal", "media", "story", "title", "review"];
-      const currentIndex = steps.indexOf(step);
+      const currentStep = Array.isArray(step) ? step[0] : step;
+      const currentIndex = steps.indexOf(currentStep);
       if (currentIndex < steps.length - 1) {
         const nextStep = steps[currentIndex + 1];
         router.push(`/create/start-fundraiser/${nextStep}/${fundraiserId}`);
@@ -155,7 +156,8 @@ const FundraiserForm = () => {
 
   const prevStep = () => {
     const steps = ["place-date", "goal", "media", "story", "title", "review"];
-    const currentIndex = steps.indexOf(step);
+    const currentStep = Array.isArray(step) ? step[0] : step;
+    const currentIndex = steps.indexOf(currentStep);
     if (currentIndex > 0) {
       const prevStep = steps[currentIndex - 1];
       router.push(`/create/start-fundraiser/${prevStep}/${fundraiserId}`);
