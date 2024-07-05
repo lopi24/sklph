@@ -9,7 +9,7 @@ const CharityDetails = () => {
   return (
     <section className="wrapper flex flex-col gap-6">
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.15] text-black sm:text:6xl">
-        Let's support Janessa
+        Let's support Louel
       </h1>
       <div className="w-full flex flex-row gap-6">
         <div className="w-full md:w-2/3 flex flex-col gap-6">
