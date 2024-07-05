@@ -1,6 +1,6 @@
 {
   "functions": {
-    "app/api/auth/[...nextauth]/route/ts": {
+    "lib/actions/fundraiser.actions.ts": {
       "maxDuration": 30
     }
   }
