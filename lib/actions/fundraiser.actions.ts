@@ -81,9 +81,6 @@ export const updateFormField = async ({ userId, fundraiserId, data }: any) => {
       { new: true }
     );
 
-    // Object.assign(fundraiserToUpdate, data);
-    // await fundraiserToUpdate.save();
-
     return JSON.parse(JSON.stringify(updatedFundraiser));
   } catch (error) {
     handleError(error);
