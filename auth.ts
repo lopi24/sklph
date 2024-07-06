@@ -1,18 +1,34 @@
 import NextAuth from "next-auth";
 
 import authConfig from "./auth.config";
+// import User from "./lib/database/models/user.model";
+// import { connectToDB } from "./lib/database";
+import GoogleProvider from "next-auth/providers/google";
 import User from "./lib/database/models/user.model";
 import { connectToDB } from "./lib/database";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   ...authConfig,
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
+  ],
   callbacks: {
-    async session({ session }) {
-      // store the user id from MongoDB to session
-      const sessionUser = await User?.findOne({ email: session?.user?.email });
-      session.user.id = sessionUser._id.toString();
-      return session;
-    },
+    // async session({ session }) {
+    //   // store the user id from MongoDB to session
+    //   const sessionUser = await User?.findOne({ email: session?.user?.email });
+    //   session.user.id = sessionUser._id.toString();
+    //   return session;
+    // },
     async signIn({ profile }) {
       try {
         await connectToDB();
