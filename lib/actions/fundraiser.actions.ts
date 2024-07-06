@@ -2,8 +2,8 @@
 
 import { connectToDB } from "@/lib/database";
 import { handleError } from "@/lib/utils";
-import User from "@/models/user.model";
-import Fundraiser from "@/models/fundraiser.model";
+import User from "@/lib/database/models/user.model";
+import Fundraiser from "@/lib/database/models/fundraiser.model";
 
 interface FundraiserActionProps {
   userId: string;

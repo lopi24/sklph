@@ -1,4 +1,3 @@
-import { fundraiserFormSchema } from "@/validator";
 import { Schema, model, models, Document } from "mongoose";
 
 interface ImageType {
@@ -66,6 +65,6 @@ const FundraiserSchema = new Schema<IFundraiser>({
   organizer: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
-const Fundraiser = models?.Fundraiser || model("Fundraiser", FundraiserSchema);
+const Fundraiser = models.Fundraiser || model("Fundraiser", FundraiserSchema);
 
 export default Fundraiser;
