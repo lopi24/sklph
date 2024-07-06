@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
+
 import CardWrapper from "./card-wrapper";
 import Image from "next/image";
-import Link from "next/link";
 
 const Collection = () => {
   const imgs = 12;

@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import User from "@/models/user.model";
 import { connectToDB } from "@/lib/database/index";
 import authConfig from "@/auth.config";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
-import clientPromise from "./lib/database/db";
+// import { MongoDBAdapter } from "@auth/mongodb-adapter";
+// import clientPromise from "./lib/database/db";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
-  adapter: MongoDBAdapter(clientPromise) as any,
+  // adapter: MongoDBAdapter(clientPromise) as any,
   callbacks: {
     async session({ session }) {
       // store the user id from MongoDB to session
