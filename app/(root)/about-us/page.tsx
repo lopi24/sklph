@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
     <section className="wrapper">
       <Header
-        heading="Find out more about us"
+        heading="Learn more about us"
         description="Engage in community fundraisers aiding individuals with disabilities,
       empowering you to provide vital support."
       />
