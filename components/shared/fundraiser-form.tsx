@@ -23,9 +23,8 @@ import {
 } from "@/lib/actions/fundraiser.actions";
 import { useCurrentUser } from "@/hooks/use-current-user";
 
-
 const FundraiserForm = () => {
-  const user = useCurrentUser()
+  const user = useCurrentUser();
   const router = useRouter();
   const params = useParams();
 
@@ -64,11 +63,19 @@ const FundraiserForm = () => {
       form.setValue("endDateTime", fundraiserData.endDateTime || "");
       form.setValue("goal", fundraiserData.goal || "");
       if (fundraiserData.images) {
-        const existingFiles = fundraiserData.images.map((image: any) => ({
-          name: image,
-          preview: image,
-          type: "image",
-        }));
+        const existingFiles = fundraiserData.images.map((image: any) => {
+          console.log(image); // Log the image data
+          return {
+            name: image.name,
+            preview: image.preview,
+            _id: image._id,
+          };
+        });
+        //   const existingFiles = fundraiserData.images.map((image: any) => ({
+        //     name: image,
+        //     preview: image,
+        //     type: "image",
+        //   }));
         setFiles(existingFiles);
         form.setValue("images", existingFiles);
       }
