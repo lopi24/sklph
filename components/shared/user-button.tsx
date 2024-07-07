@@ -15,19 +15,19 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { FaUser } from "react-icons/fa";
 import { IoIosLogOut, IoIosCreate } from "react-icons/io";
 import { LogoutButton } from "./logout-button";
-import { useSession } from "next-auth/react";
 import {
   createFundraiser,
   getDraftFundraisers,
 } from "@/lib/actions/fundraiser.actions";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 const UserButton = () => {
   const router = useRouter();
-  const { data } = useSession();
+  const user = useCurrentUser();
 
-  const userId = data?.user?.id as string;
+  const userId = user?.id as string;
 
   const createFundraiserhandler = async () => {
     // TODO: create post req for fundraiser and then will redirect to that newly created fundraiser and will address to fundraiserId /create/start-fundraiser/[steps]/[fundraiserId]
@@ -57,7 +57,7 @@ const UserButton = () => {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar className="h-7 w-7">
-          <AvatarImage src={data?.user?.image || ""} />
+          <AvatarImage src={user?.image || ""} />
           <AvatarFallback className="bg-white">
             <FaUser className="h-4 w-4" />
           </AvatarFallback>

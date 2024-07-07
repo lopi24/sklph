@@ -2,18 +2,18 @@
 
 import Header from "@/components/shared/header";
 import DraftList from "@/components/start-fundraiser/components/draft-list";
+import { useCurrentUser } from "@/hooks/use-current-user";
 import { getDraftFundraisers } from "@/lib/actions/fundraiser.actions";
 import { FundraiserDraft } from "@/types";
-import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const Draft = () => {
-  const { data } = useSession();
+  const user = useCurrentUser();
   const [fundraiserDrafts, setFundraiserDrafts] = useState<FundraiserDraft[]>(
     []
   );
 
-  const userId = data?.user?.id as string;
+  const userId = user?.id as string;
 
   useEffect(() => {
     const fetchDrafts = async () => {
@@ -30,8 +30,6 @@ const Draft = () => {
 
     fetchDrafts();
   }, [userId]);
-
-  // console.log(fundraiserDrafts);
 
   return (
     <section className="wrapper">

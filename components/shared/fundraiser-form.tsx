@@ -8,7 +8,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FundraiserFormData, fundraiserFormSchema } from "@/validator";
 
 import { Form } from "@/components/ui/form";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 import ImageFormField from "@/components/start-fundraiser/multipage/image-formField";
 import GoalFormField from "@/components/start-fundraiser/multipage/goal-formField";
@@ -22,10 +21,11 @@ import {
   getFundraiserById,
   updateFormField,
 } from "@/lib/actions/fundraiser.actions";
-import { useSession } from "next-auth/react";
+import { useCurrentUser } from "@/hooks/use-current-user";
+
 
 const FundraiserForm = () => {
-  const session = useSession();
+  const user = useCurrentUser()
   const router = useRouter();
   const params = useParams();
 
@@ -117,7 +117,7 @@ const FundraiserForm = () => {
       const plainData = JSON.parse(JSON.stringify(data));
 
       await updateFormField({
-        userId: session?.data?.user?.id,
+        userId: user?.id,
         fundraiserId,
         data: plainData,
       });

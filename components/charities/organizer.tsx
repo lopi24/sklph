@@ -10,7 +10,7 @@ import { FaUser } from "react-icons/fa";
 import { LuMessageCircle } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useSession } from "next-auth/react";
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 interface OrganizerProps {
   organizers: {
@@ -21,7 +21,7 @@ interface OrganizerProps {
 }
 
 const Organizer = ({ organizers }: OrganizerProps) => {
-  const { data } = useSession();
+  const user = useCurrentUser();
 
   return (
     <div className="border-b-2 py-12 flex flex-col gap-8">
@@ -35,7 +35,7 @@ const Organizer = ({ organizers }: OrganizerProps) => {
             <div className="flex gap-2">
               <CardHeader className="p-0">
                 <Avatar>
-                  <AvatarImage src={data?.user?.image || ""} />
+                  <AvatarImage src={user?.image || ""} />
                   <AvatarFallback>
                     <FaUser className="h-5 w-5" />
                   </AvatarFallback>
